@@ -1,0 +1,37 @@
+body {
+    background: #191970;
+    font-family: 'Slabo 27px', serif;
+}
+#logo {
+    width: 800px;
+    height: 600px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 0px;
+}
+
+#get_started {
+    text-decoration: none;
+    width: 200px;
+    height: 45px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    background-color: yellow;
+    text-align: center;
+    line-height: 0;
+    vertical-align: middle;
+    display:table-cell;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+#get_started p {
+    font-family: 'Slabo 27px', serif;
+    font-size: 2rem;
+}
+
+#get_started:hover {
+    background-color: orange;
+}
