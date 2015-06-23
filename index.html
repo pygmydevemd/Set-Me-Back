@@ -5,11 +5,46 @@
     <meta charset="UTF-8">
     <title>Set Me Back - Loan Calculator</title>
     <link rel="stylesheet" type="text/css" href="home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        $(document).ready( function() {
+            var autoLoan = function( principal, interestRate, termLength ){ 
+                var result = principal + (principal * interestRate) / termLength
+                console.log("Autoloan called, result is " + result);
+                return result;
+            }
+            
+            $("#get_started").click( function(){
+                $("#entries").removeAttr("hidden");
+                $(this).remove();
+            });
+            
+            $(".userInput").keyup( function() {
+                var principal = $("#loanAmount").val() || 0;
+                var interestRate = $("#interestRate").val() || 0;
+                var termLength = $("#loanTerm").val() || 0;
+                $("#result").value = autoLoan( principal, interestRate, termLength );
+            });
+        });
+    </script>
 </head>
 <body>
     <h1 id="logo">
         <img src="setmeback.svg" />
     </h1>
     <div id="get_started">Get Started</div>
+    <div id="entries" hidden> 
+        Loan Type:  <select>
+                        <option value='auto'>Auto</option>
+                        <option value='mortgage'>Mortgage</option>
+                        <option value='personal'>Personal</option>
+                    </select><br>
+    
+        Loan Amount: <input class="userInput" id="loanAmount" type='number'><br>
+        Interest Rate:  <input class="userInput" id="interestRate" type='number'><br>
+        Loan Term(Months): <input class="userInput" id="loanTerm" type='number' min='6' max='72'>
+        <p>Result: <input id="result"></p>
+    </div>
+    
 </body>
 </html>
